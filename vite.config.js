@@ -1,7 +1,14 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
+import { defineConfig } from 'vite';
+import HtmlPlugin from 'vite-plugin-html';
 
-// https://vite.dev/config/
 export default defineConfig({
-  plugins: [react()],
-})
+  plugins: [
+    HtmlPlugin({
+      inject: {
+        injectHtml: `
+          <base href="/task-app-react/" />
+        `
+      }
+    })
+  ]
+});
