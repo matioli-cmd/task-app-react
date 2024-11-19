@@ -36,7 +36,7 @@ function ListItems({ groceryItems, checkedItems, deleteTask, handleChecked, upTa
                     </li>
                 ))
             ) : (
-                <h1>No Grocery items</h1>
+                <h1>No task items</h1>
             )}
         </ul>
     );
