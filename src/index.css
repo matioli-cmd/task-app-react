@@ -63,7 +63,7 @@ body {
 
 ul {
     list-style-type: none; 
-    padding: 0;
+    padding: 5px;
     margin: 0;
 }
 
@@ -75,7 +75,7 @@ li {
     background-color: #fff;
     margin-bottom: 10px;
     border-radius: 5px;
-    min-width: 100px;
+    min-width: 200px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     transition: background-color 0.3s ease;
 }
@@ -187,7 +187,6 @@ input[type="number"] {
     margin: 0 auto;       
 }
 
-/* Existing styles for list items */
 li {
     display: flex;
     font-size: 40px;
@@ -195,19 +194,40 @@ li {
     background-color: #fff;
     margin-bottom: 10px;
     border-radius: 5px;
-    min-width: 100px;
+    min-width: auto;
     align-items: center;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     transition: background-color 0.3s ease;
     justify-content: space-between; /* Space out elements */
-    width: 600px; /* Fixed width */
+    width: auto; /* Allow width to adjust based on content */
     margin: 5px auto; /* Center the list item horizontally */
+    max-width: 100%; /* Ensure it doesn't overflow the parent container */
 }
-
 
 li h1 {
     font-size: 30px;
-    margin: 0;
+    margin: 10px;
+}
+
+/* Media query for smaller screens */
+@media (max-width: 768px) {
+    li {
+        font-size: 30px; /* Decrease font size */
+    }
+    li h1 {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    li {
+        font-size: 24px; /* Further decrease font size */
+        padding: 6px 10px; /* Further reduce padding */
+    }
+    li h1 {
+        font-size: 20px;
+    }
+    
 }
 
 /* New container for icons */
@@ -229,11 +249,11 @@ li .up-btn, li .down-btn, li .delete-btn {
 }
 
 li .delete-btn {
-    color: #e74c3c;
+    color: #333;
 }
 
 li .delete-btn:hover {
-    color: #c0392b;
+    color: #e45849;
 }
 
 /* Optional: Style for the up and down arrows */
