@@ -212,7 +212,10 @@ li h1 {
 /* Media query for smaller screens */
 @media (max-width: 768px) {
     li {
-        font-size: 30px; /* Decrease font size */
+        font-size: 25px; /* Decrease font size */
+    }
+    li svg{
+        width: 25px; 
     }
     li h1 {
         font-size: 20px;
@@ -221,8 +224,8 @@ li h1 {
 
 @media (max-width: 480px) {
     li {
-        font-size: 24px; /* Further decrease font size */
-        padding: 6px 10px; /* Further reduce padding */
+        font-size: 22px; 
+        padding: 6px 10px; 
     }
     li h1 {
         font-size: 20px;
@@ -230,11 +233,10 @@ li h1 {
     
 }
 
-/* New container for icons */
 .icons-container {
     display: flex;
     align-items: center;
-    gap: 10px; /* Add space between the icons */
+    gap: 10px; 
 }
 
 li .checkbox {
@@ -242,7 +244,6 @@ li .checkbox {
     transform: scale(1.2);
 }
 
-/* Up and Down arrows, and trash icon */
 li .up-btn, li .down-btn, li .delete-btn {
     cursor: pointer;
     transition: color 0.3s ease;
@@ -254,11 +255,6 @@ li .delete-btn {
 
 li .delete-btn:hover {
     color: #e45849;
-}
-
-/* Optional: Style for the up and down arrows */
-li .up-btn:hover, li .down-btn:hover {
-    color: #4CAF50;
 }
 
 li .up-btn, li .down-btn {
