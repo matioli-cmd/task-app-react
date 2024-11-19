@@ -15,7 +15,7 @@ function AddTask({handleNewTask}){
 
         <div className="Add">
 
-            <input value={inputValue} onChange={(e) => {handleInputChange(e)}} placeholder='Add Task' ref={Inputref} maxLength='19'></input>
+            <input value={inputValue} onChange={(e) => {handleInputChange(e)}} placeholder='Add Task' ref={Inputref} ></input>
             <button onClick={() => handleNewTask(inputValue, Inputref, setinputValue)}> <FaPlus></FaPlus>
             </button>
 

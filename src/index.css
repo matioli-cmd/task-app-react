@@ -198,39 +198,33 @@ li {
     align-items: center;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     transition: background-color 0.3s ease;
-    justify-content: space-between; /* Space out elements */
-    width: auto; /* Allow width to adjust based on content */
-    margin: 5px auto; /* Center the list item horizontally */
-    max-width: 100%; /* Ensure it doesn't overflow the parent container */
+    justify-content: space-between; 
+    width: auto; 
+    margin: 5px auto;
+    max-width: 100%;
 }
-
 li h1 {
     font-size: 30px;
     margin: 10px;
+    max-width: 30ch;  
+    word-wrap: break-word;  
+    overflow-wrap: break-word;
 }
 
-/* Media query for smaller screens */
+li h1 {
+    white-space: normal;  
+}
 @media (max-width: 768px) {
     li {
-        font-size: 25px; /* Decrease font size */
+        font-size: 25px;
     }
-    li svg{
+    li svg {
         width: 25px; 
     }
     li h1 {
-        font-size: 17px;
-    }
-}
-
-@media (max-width: 480px) {
-    li {
-        font-size: 22px; 
-        padding: 6px 10px; 
-    }
-    li h1 {
         font-size: 20px;
+        max-width: 50%;  
     }
-    
 }
 
 .icons-container {
