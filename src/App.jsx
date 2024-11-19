@@ -9,13 +9,11 @@ function App() {
 
 const [groceryItems, setGroceryItems] = useState(() => {
     const storedItems = localStorage.getItem('listitems')
-    console.log(storedItems)
     return(storedItems ? JSON.parse(storedItems) : [])
 
 } )
 const [checkedItems, setCheckeditems] = useState(() => { 
     const checked = localStorage.getItem('checked')
-    console.log(checked)
     return (checked ? JSON.parse(checked) : [])
 })
 
