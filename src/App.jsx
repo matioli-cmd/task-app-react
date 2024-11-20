@@ -21,21 +21,30 @@ const [searchValue, setSearchValue] = useState('');
 
 
 useEffect(() => {
-  document.title = groceryItems.length == 1 ? `${groceryItems.length} item` : `${groceryItems.length} items`
+  document.title = groceryItems.length == 1 ? `${groceryItems.length} task` : `${groceryItems.length} tasks`
 })
 
-function deleteTask(item){
+useEffect(() => {
+  
+  localStorage.setItem('listitems', JSON.stringify(groceryItems))
+
+}, [groceryItems])
+
+useEffect(() => {
     
+  localStorage.setItem('checked', JSON.stringify(checkedItems))
+
+}, [checkedItems])
+
+
+function deleteTask(item){
+       
     const itemslist = groceryItems.filter(t => t != item)
     setGroceryItems(itemslist)
-  
-    localStorage.setItem('listitems', JSON.stringify(itemslist))
     
     const UpdatedCheckList = checkedItems.filter(t => t != item)
     
     setCheckeditems(UpdatedCheckList)
-
-    localStorage.setItem('checked', JSON.stringify(UpdatedCheckList))
 }
 
 function handleChecked(item){
@@ -46,8 +55,6 @@ function handleChecked(item){
     : [...PreviousCheckList, item]
     
     setCheckeditems(UpdatedCheckList)
-
-    localStorage.setItem('checked', JSON.stringify(UpdatedCheckList))
     
 
 }
@@ -57,7 +64,6 @@ function handleNewTask(inputValue, Inputref, setinputValue){
   if(inputValue.trim() != '' && !groceryItems.includes(inputValue)){
     const newList = [...groceryItems, inputValue]
     setGroceryItems(newList)
-    localStorage.setItem('listitems', JSON.stringify(newList))
   }
   Inputref.current.focus()
   setinputValue('')
@@ -74,8 +80,6 @@ function upTask(index){
     [tempArray[index], tempArray[index-1]] = [tempArray[index-1], tempArray[index]];
 
     setGroceryItems(tempArray)
-
-    localStorage.setItem('listitems', JSON.stringify(tempArray))
   }
 }
 function downTask(index){
@@ -87,8 +91,6 @@ function downTask(index){
       [tempArray[index], tempArray[index+1]] = [tempArray[index+1], tempArray[index]];
   
       setGroceryItems(tempArray)
-  
-      localStorage.setItem('listitems', JSON.stringify(tempArray))
     }
 
   }
