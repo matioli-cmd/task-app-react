@@ -132,8 +132,7 @@ function downTask(index){
         <Header></Header>
         <AddTask handleNewTask={handleNewTask}></AddTask>
         <Search setSearchValue={setSearchValue} searchValue={searchValue}></Search>
-        <main>
-        
+        <br></br>
         {loading && <p style={{textAlign: "center", color: "#333"}}>{loading}</p>}
         {/*fetchError && <p style={{color: "red", textAlign: "center"}}>{`Error: ${fetchError}`}</p>*/}
         {!loading && <MainContent
@@ -148,7 +147,6 @@ function downTask(index){
           downTask={downTask}
         ></MainContent>}
 
-        </main>
  
         <Footer length={groceryItems.length}></Footer>
 
