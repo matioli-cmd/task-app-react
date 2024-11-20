@@ -121,7 +121,6 @@ function downTask(index){
 
     setTimeout(() => {
       setLoading(null)
-      getdata()
     }, 2000);
   }, [])
 
@@ -136,8 +135,8 @@ function downTask(index){
         <main>
         
         {loading && <p style={{textAlign: "center", color: "#333"}}>{loading}</p>}
-        {fetchError && <p style={{color: "red", textAlign: "center"}}>{`Error: ${fetchError}`}</p>}
-        {!fetchError && !loading && <MainContent
+        {/*fetchError && <p style={{color: "red", textAlign: "center"}}>{`Error: ${fetchError}`}</p>*/}
+        {!loading && <MainContent
           
           handleChecked={handleChecked}
           deleteTask={deleteTask}
