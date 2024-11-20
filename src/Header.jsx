@@ -1,4 +1,4 @@
-function Header() {
+function Header({error}) {
     return (
         <header style={headerStyles}>
             <h1 >Task Application</h1>

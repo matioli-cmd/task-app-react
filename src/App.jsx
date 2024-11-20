@@ -95,6 +95,36 @@ function downTask(index){
 
   }
 
+  // TESTING JSON SERVER
+
+  const [fetchError, setFetchError] = useState(null)
+  const [loading, setLoading] = useState('Loading your tasks...')
+
+  useEffect(() => {
+    
+    async function getdata(){
+
+      try{
+
+        let response = await fetch('http://localhost:3500/items')
+        if(!response.ok) throw new Error('Did not get expected data')
+        let data = await response.json()
+        setFetchError(null)
+      }
+      catch(err){
+        setFetchError(err.message)
+
+      }
+
+      
+    }
+
+    setTimeout(() => {
+      setLoading(null)
+      getdata()
+    }, 2000);
+  }, [])
+
 
   return (
     <div className="App" style={{ display: 'flex', flexDirection: 'column', height: '100vh' }}>
@@ -103,16 +133,24 @@ function downTask(index){
         <Header></Header>
         <AddTask handleNewTask={handleNewTask}></AddTask>
         <Search setSearchValue={setSearchValue} searchValue={searchValue}></Search>
-        <MainContent
-        handleChecked={handleChecked}
-        deleteTask={deleteTask}
-        groceryItems={groceryItems.filter(item => item.toLowerCase().includes(searchValue.trim().toLowerCase()))}
-        setCheckeditems={setCheckeditems}
-        setGroceryItems={setGroceryItems}
-        checkedItems={checkedItems}
-        upTask={upTask}
-        downTask={downTask}
-        ></MainContent>
+        <main>
+        
+        {loading && <p style={{textAlign: "center", color: "#333"}}>{loading}</p>}
+        {fetchError && <p style={{color: "red", textAlign: "center"}}>{`Error: ${fetchError}`}</p>}
+        {!fetchError && !loading && <MainContent
+          
+          handleChecked={handleChecked}
+          deleteTask={deleteTask}
+          groceryItems={groceryItems.filter(item => item.toLowerCase().includes(searchValue.trim().toLowerCase()))}
+          setCheckeditems={setCheckeditems}
+          setGroceryItems={setGroceryItems}
+          checkedItems={checkedItems}
+          upTask={upTask}
+          downTask={downTask}
+        ></MainContent>}
+
+        </main>
+ 
         <Footer length={groceryItems.length}></Footer>
 
 
